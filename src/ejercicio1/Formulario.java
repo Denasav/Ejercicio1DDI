@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Formulario extends javax.swing.JDialog {
 
+
     /**
      * Creates new form Formulario
      * @param parent
@@ -28,10 +29,22 @@ public class Formulario extends javax.swing.JDialog {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         initComponents();
         jPanelOcultar.setVisible(false);
+        validacion1.setVisible(false);
+        validacion3.setVisible(false);
+        validacion2.setVisible(false);
+        
     }
 
     // Atributos
     int cont=0;
+    
+    
+    public void validar(){
+        
+        if(jTextNombre.getText().equals("")){validacion1.setVisible(true); cont++;} else {validacion1.setVisible(false);}
+        if(jTextApellidos.getText().equals("")){validacion3.setVisible(true); cont++;} else {validacion3.setVisible(false);}
+        if(jTextTelefono.getText().equals("")){validacion2.setVisible(true); cont++;} else {validacion2.setVisible(false);}
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +64,9 @@ public class Formulario extends javax.swing.JDialog {
         jTextNombre = new javax.swing.JTextField();
         jTextTelefono = new javax.swing.JTextField();
         jTextApellidos = new javax.swing.JTextField();
+        validacion1 = new javax.swing.JLabel();
+        validacion3 = new javax.swing.JLabel();
+        validacion2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         etiReserva = new javax.swing.JLabel();
         etiFecha = new javax.swing.JLabel();
@@ -103,6 +119,12 @@ public class Formulario extends javax.swing.JDialog {
         jTextApellidos.setFont(new java.awt.Font("Times New Roman", 3, 12)); // NOI18N
         jTextApellidos.setToolTipText("Introduce tus apellidos");
 
+        validacion1.setText("***");
+
+        validacion3.setText("***");
+
+        validacion2.setText("***");
+
         javax.swing.GroupLayout jPanelContactoLayout = new javax.swing.GroupLayout(jPanelContacto);
         jPanelContacto.setLayout(jPanelContactoLayout);
         jPanelContactoLayout.setHorizontalGroup(
@@ -111,41 +133,48 @@ public class Formulario extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelContactoLayout.createSequentialGroup()
-                        .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(etiNombre)
-                            .addComponent(etiTfn))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(jTextTelefono))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(etiApellidos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelContactoLayout.createSequentialGroup()
-                        .addComponent(etiContacto)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelContactoLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(etiNombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(validacion1))
+                            .addGroup(jPanelContactoLayout.createSequentialGroup()
+                                .addComponent(etiApellidos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelContactoLayout.createSequentialGroup()
+                                .addComponent(etiTfn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(validacion2))
+                            .addComponent(validacion3)))
+                    .addComponent(etiContacto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelContactoLayout.setVerticalGroup(
             jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContactoLayout.createSequentialGroup()
                 .addComponent(etiContacto)
-                .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelContactoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(jPanelContactoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiNombre)
-                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(etiApellidos)
-                            .addComponent(jTextApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(etiTfn)
-                        .addContainerGap(22, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiNombre)
+                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion1)
+                    .addComponent(validacion2)
+                    .addComponent(etiTfn)
+                    .addComponent(jTextTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiApellidos)
+                    .addComponent(jTextApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validacion3))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel2.setToolTipText("Datos de Reserva");
@@ -286,29 +315,28 @@ public class Formulario extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(etiFecha)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(107, 107, 107)
-                                                .addComponent(etiEvento))
-                                            .addComponent(etiReserva))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(rbCongreso)
-                                            .addComponent(rbJornada)
-                                            .addComponent(rbBanquete)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(etiAsistentes)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(etiCocina)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(comboCocina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 12, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                        .addComponent(etiFecha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(107, 107, 107)
+                                        .addComponent(etiEvento))
+                                    .addComponent(etiReserva))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbCongreso)
+                                    .addComponent(rbJornada)
+                                    .addComponent(rbBanquete))
+                                .addGap(0, 99, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(etiAsistentes)
+                        .addGap(10, 10, 10)
+                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiCocina)
+                        .addGap(26, 26, 26)
+                        .addComponent(comboCocina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +363,7 @@ public class Formulario extends javax.swing.JDialog {
                     .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiCocina)
                     .addComponent(comboCocina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -412,20 +440,14 @@ public class Formulario extends javax.swing.JDialog {
     }//GEN-LAST:event_rbCongresoActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
+        cont=0;
+        validar();
+        if(cont==0){
         JOptionPane.showMessageDialog(null ,"Reserva realizada!!","Confirmación", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
+        }
     }//GEN-LAST:event_btnReservarActionPerformed
 
-// ************************************** Metodos de clase ************************************
-    
-    /**
-     * Método en el que validamos que los campos no esten vacios.
-     */
-//    public void validar(){
-//        
-//        if(Campo1.getText().equals("")){validacion1.setVisible(true); cont++;} else {validacion1.setVisible(false);}
-//        if(Campo2.getText().equals("")){validacion2.setVisible(true); cont++;} else {validacion2.setVisible(false);}
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Evento;
@@ -460,5 +482,8 @@ public class Formulario extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbBanquete;
     private javax.swing.JRadioButton rbCongreso;
     private javax.swing.JRadioButton rbJornada;
+    private javax.swing.JLabel validacion1;
+    private javax.swing.JLabel validacion2;
+    private javax.swing.JLabel validacion3;
     // End of variables declaration//GEN-END:variables
 }
